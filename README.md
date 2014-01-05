@@ -5,4 +5,4 @@ backend with [Flask][2] for the [TodoMVC][1] app.
 [2]: http://flask.pocoo.org/
 [3]: http://backbonejs.org
 [4]: http://todomvc.com/architecture-examples/backbone/
-[5]: http://simplectic.com//2014/flask-todomvc-part1
+[5]: http://simplectic.com/blog/2014/flask-todomvc-part1/
