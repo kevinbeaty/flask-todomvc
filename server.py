@@ -14,7 +14,8 @@ app.debug = True
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    todos = filter(None, TODOS)
+    return render_template('index.html', todos=todos)
 
 
 @app.route('/todos/', methods=['POST'])
