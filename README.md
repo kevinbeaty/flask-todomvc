@@ -5,6 +5,7 @@ backend with [Flask][2] for the [TodoMVC][1] app.
 
 1. [Part 1][5]
 2. [Backbone Sync][6]
+3. [Dataset][7]
 
 [1]: http://todomvc.com
 [2]: http://flask.pocoo.org/
@@ -12,3 +13,4 @@ backend with [Flask][2] for the [TodoMVC][1] app.
 [4]: http://todomvc.com/architecture-examples/backbone/
 [5]: http://simplectic.com/blog/2014/flask-todomvc-part1/
 [6]: http://simplectic.com/blog/2014/flask-todomvc-backbone-sync/
+[7]: http://simplectic.com/blog/2014/flask-todomvc-dataset/
