@@ -3,9 +3,10 @@
 This is the code for a [series][5] of blog articles that creates a [Backbone.js][3]
 backend with [Flask][2] for the [TodoMVC][1] app.  
 
-1. [Part 1][5]
-2. [Backbone Sync][6]
-3. [Dataset][7]
+1. [Getting Started][5]
+2. [Server Side Backbone Sync][6]
+3. [Dataset Persistence][7]
+4. [Custom Configuration][8]
 
 [1]: http://todomvc.com
 [2]: http://flask.pocoo.org/
@@ -14,3 +15,4 @@ backend with [Flask][2] for the [TodoMVC][1] app.
 [5]: http://simplectic.com/blog/2014/flask-todomvc-part1/
 [6]: http://simplectic.com/blog/2014/flask-todomvc-backbone-sync/
 [7]: http://simplectic.com/blog/2014/flask-todomvc-dataset/
+[8]: http://simplectic.com/blog/2014/flask-todomvc-configuration/

@@ -7,11 +7,14 @@ from flask import (
     request)
 
 import dataset
-db = dataset.connect('sqlite:///todos.db')
-todos = db['todos']
 
 app = Flask(__name__, static_url_path='')
-app.debug = True
+
+app.config.from_object('config.default')
+app.config.from_envvar('TODO_SETTINGS', silent=True)
+
+db = dataset.connect(app.config['DATABASE'])
+todos = db['todos']
 
 
 @app.route('/')

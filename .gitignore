@@ -1,1 +1,3 @@
-todos.db
+*.swp
+*.db
+*.py[cod]
