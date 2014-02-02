@@ -26,8 +26,9 @@ def index():
 @app.route('/todos/', methods=['POST'])
 def todo_create():
     todo = request.get_json()
-    todos.insert(todo)
-    return _todo_response(todo)
+    resp = dict(**todo)
+    resp['id'] = todos.insert(todo)
+    return _todo_response(resp)
 
 
 @app.route('/todos/<int:id>')
