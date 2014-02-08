@@ -1,2 +1,2 @@
-DATABASE = 'sqlite:///todos.db'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///todos.db'
 DEBUG = True

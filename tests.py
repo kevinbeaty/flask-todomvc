@@ -15,10 +15,10 @@ class TodoTestCase(unittest.TestCase):
     def setUp(self):
         self.client = server.app.test_client()
         self.order = 1
+        server.init_db()
 
     def tearDown(self):
-        server.todos.drop()
-        server.todos = server.db['todos']
+        server.db.drop_all()
 
     def create(self, title, completed=False):
         todo = {"title": title,
@@ -49,7 +49,8 @@ class TodoTestCase(unittest.TestCase):
 
     def test_config_settings(self):
         config = server.app.config
-        assert config['DATABASE'] == 'sqlite:///test.db'
+        assert config['SQLALCHEMY_DATABASE_URI'] == \
+            'sqlite:///test.db'
         assert config['TESTING']
         assert config['DEBUG']
 

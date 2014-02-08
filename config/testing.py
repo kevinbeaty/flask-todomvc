@@ -1,2 +1,2 @@
-DATABASE = 'sqlite:///test.db'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
 TESTING = True
