@@ -9,6 +9,7 @@ backend with [Flask][2] for the [TodoMVC][1] app.
 4. [Custom Configuration][8]
 5. [Testing Todo API][9]
 6. [SQLAlchemy Persistence][10]
+7. [User Login][11]
 
 [1]: http://todomvc.com
 [2]: http://flask.pocoo.org/
@@ -20,3 +21,4 @@ backend with [Flask][2] for the [TodoMVC][1] app.
 [8]: http://simplectic.com/blog/2014/flask-todomvc-configuration/
 [9]: http://simplectic.com/blog/2014/flask-todomvc-testing/ 
 [10]: http://simplectic.com/blog/2014/flask-todomvc-sqlalchemy/
+[11]: http://simplectic.com/blog/2014/flask-todomvc-login/

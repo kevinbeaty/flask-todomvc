@@ -1,2 +1,4 @@
 Flask
 Flask-SQLAlchemy
+Flask-Security
+py-bcrypt
