@@ -1,13 +1,10 @@
 """ server.py """
-from flask import (
-    Flask,
-    jsonify,
-    render_template,
-    request)
+from flask import Flask, render_template
 
 from flask_todomvc import settings
 from flask_todomvc.extensions import db, security
 from flask_todomvc.models import User, Role, Todo
+from flask_todomvc.todos import bp as todos
 
 from flask_security import (
     SQLAlchemyUserDatastore,
@@ -22,6 +19,8 @@ app.config.from_envvar('TODO_SETTINGS', silent=True)
 db.init_app(app)
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security.init_app(app, user_datastore)
+
+app.register_blueprint(todos)
 
 
 def init_db():
@@ -41,40 +40,6 @@ def index():
     todo_list = map(Todo.to_json, todos)
     return render_template(
         'index.html', todos=todo_list)
-
-
-@app.route('/todos/', methods=['POST'])
-def todo_create():
-    todo = Todo()
-    todo.from_json(request.get_json())
-    db.session.add(todo)
-    db.session.commit()
-    return _todo_response(todo)
-
-
-@app.route('/todos/<int:id>')
-def todo_read(id):
-    todo = Todo.query.get_or_404(id)
-    return _todo_response(todo)
-
-
-@app.route('/todos/<int:id>', methods=['PUT', 'PATCH'])
-def todo_update(id):
-    todo = Todo.query.get_or_404(id)
-    todo.from_json(request.get_json())
-    db.session.commit()
-    return _todo_response(todo)
-
-
-@app.route('/todos/<int:id>', methods=['DELETE'])
-def todo_delete(id):
-    Todo.query.filter_by(id=id).delete()
-    db.session.commit()
-    return jsonify()
-
-
-def _todo_response(todo):
-    return jsonify(**todo.to_json())
 
 
 if __name__ == '__main__':

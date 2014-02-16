@@ -60,7 +60,7 @@
 		<script src="js/app.js"></script>
         <script>
         $(function(){
-            app.todos.url = '{{ url_for("todo_create") }}';
+            app.todos.url = '{{ url_for("todos.create") }}';
             app.todos.reset({{ todos | tojson }});
         });
         </script>
