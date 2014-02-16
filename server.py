@@ -5,7 +5,8 @@ from flask import (
     render_template,
     request)
 
-from flask_sqlalchemy import SQLAlchemy
+from flask_todomvc.extensions import db
+
 from flask_security import (
     Security,
     SQLAlchemyUserDatastore,
@@ -19,7 +20,7 @@ app = Flask(__name__, static_url_path='')
 app.config.from_object('config.default')
 app.config.from_envvar('TODO_SETTINGS', silent=True)
 
-db = SQLAlchemy(app)
+db.init_app(app)
 
 
 def init_db():

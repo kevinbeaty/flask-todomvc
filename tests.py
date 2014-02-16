@@ -18,7 +18,8 @@ class TodoTestCase(unittest.TestCase):
         server.init_db()
 
     def tearDown(self):
-        server.db.drop_all()
+        with server.app.app_context():
+            server.db.drop_all()
 
     def create(self, title, completed=False):
         todo = {"title": title,
