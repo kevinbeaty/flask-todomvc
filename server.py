@@ -5,6 +5,7 @@ from flask import (
     render_template,
     request)
 
+from flask_todomvc import settings
 from flask_todomvc.extensions import db, security
 from flask_todomvc.models import User, Role, Todo
 
@@ -15,7 +16,7 @@ from flask_security.utils import encrypt_password
 
 app = Flask(__name__, static_url_path='')
 
-app.config.from_object('config.default')
+app.config.from_object(settings)
 app.config.from_envvar('TODO_SETTINGS', silent=True)
 
 db.init_app(app)
