@@ -1,14 +1,13 @@
 """ server.py """
-from flask import Flask, render_template
+from flask import Flask
 
 from flask_todomvc import settings
 from flask_todomvc.extensions import db, security
-from flask_todomvc.models import User, Role, Todo
+from flask_todomvc.models import User, Role
+from flask_todomvc.index import bp as index
 from flask_todomvc.todos import bp as todos
 
-from flask_security import (
-    SQLAlchemyUserDatastore,
-    login_required)
+from flask_security import SQLAlchemyUserDatastore
 from flask_security.utils import encrypt_password
 
 app = Flask(__name__, static_url_path='')
@@ -20,6 +19,7 @@ db.init_app(app)
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security.init_app(app, user_datastore)
 
+app.register_blueprint(index)
 app.register_blueprint(todos)
 
 
@@ -31,15 +31,6 @@ def init_db():
                 email='kevin@example.com',
                 password=encrypt_password('password'))
             db.session.commit()
-
-
-@app.route('/')
-@login_required
-def index():
-    todos = Todo.query.all()
-    todo_list = map(Todo.to_json, todos)
-    return render_template(
-        'index.html', todos=todo_list)
 
 
 if __name__ == '__main__':
