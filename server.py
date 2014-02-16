@@ -5,11 +5,10 @@ from flask import (
     render_template,
     request)
 
-from flask_todomvc.extensions import db
+from flask_todomvc.extensions import db, security
 from flask_todomvc.models import User, Role, Todo
 
 from flask_security import (
-    Security,
     SQLAlchemyUserDatastore,
     login_required)
 from flask_security.utils import encrypt_password
@@ -20,6 +19,8 @@ app.config.from_object('config.default')
 app.config.from_envvar('TODO_SETTINGS', silent=True)
 
 db.init_app(app)
+user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+security.init_app(app, user_datastore)
 
 
 def init_db():
@@ -30,9 +31,6 @@ def init_db():
                 email='kevin@example.com',
                 password=encrypt_password('password'))
             db.session.commit()
-
-user_datastore = SQLAlchemyUserDatastore(db, User, Role)
-security = Security(app, user_datastore)
 
 
 @app.route('/')
