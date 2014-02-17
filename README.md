@@ -1,5 +1,7 @@
 # Flask TodoMVC
 
+[![Build Status](https://secure.travis-ci.org/kevinbeaty/flask-todomvc.png)](http://travis-ci.org/kevinbeaty/flask-todomvc)
+
 This is the code for a [series][5] of blog articles that creates a [Backbone.js][3]
 backend with [Flask][2] for the [TodoMVC][1] app.  
 
