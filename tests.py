@@ -7,19 +7,20 @@ base_path = path.dirname(path.realpath(__file__))
 cfg_path = path.join(base_path, 'config', 'testing.py')
 os.environ['TODO_SETTINGS'] = cfg_path
 
-import server
+from flask_todomvc.extensions import db
+from flask_todomvc.factory import create_app
 
 
 class TodoTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.client = server.app.test_client()
+        self.app = create_app()
+        self.client = self.app.test_client()
         self.order = 1
-        server.init_db()
 
     def tearDown(self):
-        with server.app.app_context():
-            server.db.drop_all()
+        with self.app.app_context():
+            db.drop_all()
 
     def create(self, title, completed=False):
         todo = {"title": title,
@@ -49,7 +50,7 @@ class TodoTestCase(unittest.TestCase):
         return json.loads(response.data)
 
     def test_config_settings(self):
-        config = server.app.config
+        config = self.app.config
         assert config['SQLALCHEMY_DATABASE_URI'] == \
             'sqlite:///test.db'
         assert config['TESTING']
