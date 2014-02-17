@@ -11,11 +11,12 @@ from flask_security import SQLAlchemyUserDatastore
 from flask_security.utils import encrypt_password
 
 
-def create_app():
+def create_app(priority_settings=None):
     app = Flask(__name__, static_url_path='')
 
     app.config.from_object(settings)
     app.config.from_envvar('TODO_SETTINGS', silent=True)
+    app.config.from_object(priority_settings)
 
     db.init_app(app)
     user_datastore = SQLAlchemyUserDatastore(db, User, Role)

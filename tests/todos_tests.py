@@ -1,12 +1,7 @@
-import os
 import unittest
 import json
-from os import path
 
-base_path = path.dirname(path.realpath(__file__))
-cfg_path = path.join(base_path, 'config', 'testing.py')
-os.environ['TODO_SETTINGS'] = cfg_path
-
+from . import settings
 from flask_todomvc.extensions import db
 from flask_todomvc.factory import create_app
 
@@ -14,7 +9,8 @@ from flask_todomvc.factory import create_app
 class TodoTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.app = create_app()
+        self.app = create_app(
+            priority_settings=settings)
         self.client = self.app.test_client()
         self.order = 1
 
@@ -110,7 +106,3 @@ class TodoTestCase(unittest.TestCase):
             '/todos/%d' % id)
 
         assert self.read(id) is None
-
-
-if __name__ == '__main__':
-    unittest.main()
