@@ -11,6 +11,7 @@ This is the code for Flask tutorial presented as a [series][5] of blog articles 
 5. [Testing Todo API][9]
 6. [SQLAlchemy Persistence][10]
 7. [User Login][11]
+7. [Modularization: Factories and Blueprints][11]
 
 [1]: http://todomvc.com
 [2]: http://flask.pocoo.org/
@@ -23,3 +24,4 @@ This is the code for Flask tutorial presented as a [series][5] of blog articles 
 [9]: http://simplectic.com/blog/2014/flask-todomvc-testing/ 
 [10]: http://simplectic.com/blog/2014/flask-todomvc-sqlalchemy/
 [11]: http://simplectic.com/blog/2014/flask-todomvc-login/
+[12]: http://simplectic.com/blog/2014/flask-todomvc-modular/
