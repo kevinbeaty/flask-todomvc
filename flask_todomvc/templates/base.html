@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Flask TodoMVC</title>
+		<link rel="stylesheet" href="bower_components/todomvc-common/base.css">
+	</head>
+	<body>
+		<section id="todoapp">
+			<header id="header">
+                {% block header %}
+                {% endblock %}
+			</header>
+			<section id="main">
+                {% block main %}
+                {% endblock %}
+			</section>
+			<footer id="footer"></footer>
+		</section>
+		<footer id="info">
+            {% block info %}
+            {% endblock %}
+		</footer>
+        {% block scripts %}
+        {% endblock %}
+	</body>
+</html>
