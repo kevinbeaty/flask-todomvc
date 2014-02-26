@@ -4,9 +4,16 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Flask TodoMVC</title>
-		<link rel="stylesheet" href="bower_components/todomvc-common/base.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/todomvc-common/base.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 	</head>
 	<body>
+            {% if current_user and current_user.is_authenticated() %}
+            <div id="welcome">
+                Welcome, {{ current_user.email }} |
+                <a href="{{ url_for('security.logout') }}">logout</a>
+            </div>
+            {% endif %}
 		<section id="todoapp">
 			<header id="header">
                 {% block header %}
