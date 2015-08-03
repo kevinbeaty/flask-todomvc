@@ -12,7 +12,7 @@ from flask_security.utils import encrypt_password
 
 
 def create_app(priority_settings=None):
-    app = Flask(__name__, static_url_path='')
+    app = Flask(__name__)
 
     app.config.from_object(settings)
     app.config.from_envvar('TODO_SETTINGS', silent=True)
