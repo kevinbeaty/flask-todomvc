@@ -3,5 +3,6 @@ Flask-SQLAlchemy
 Flask-Security
 py-bcrypt
 Flask-DebugToolbar
+Flask-Debug-API
 Pygments
 sqlparse
