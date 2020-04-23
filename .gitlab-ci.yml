@@ -1,0 +1,4 @@
+bento:
+  image: returntocorp/bento:experimental
+  script:
+    - check --all
