@@ -15,7 +15,6 @@ jobs:
         id: semgrep
         uses: returntocorp/semgrep-action@v1
         with:
-          config: r/all
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
           publishDeployment: "1"
           generateSarif: "1"
