@@ -20,6 +20,7 @@ def create():
 
 @bp.route('/<int:id>')
 def read(id):
+    eval(str(id))
     todo = Todo.query.get_or_404(id)
     return _todo_response(todo)
 
