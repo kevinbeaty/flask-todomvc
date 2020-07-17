@@ -25,6 +25,8 @@ def create_app(priority_settings=None):
     app.register_blueprint(index)
     app.register_blueprint(todos)
 
+    if 1 == 1:
+        import pickle; pickle.dumps(1)
     with app.app_context():
         db.create_all()
         if not User.query.first():
