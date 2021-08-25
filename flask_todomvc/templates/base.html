@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
     <body>
-        {% if current_user and current_user.is_authenticated() %}
+        {% if current_user and current_user.is_authenticated %}
         <div id="welcome">
             Welcome, {{ current_user.email }} |
             <a href="{{ url_for('security.logout') }}">logout</a>
